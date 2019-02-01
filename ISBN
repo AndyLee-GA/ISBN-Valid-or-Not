@@ -1,0 +1,52 @@
+
+public class ISBN{
+	private String digits;
+	private String checkSymbol;
+	private boolean valid;
+	
+	public ISBN(String digits, String checkSymbol) {
+		this.digits =digits;
+		this.checkSymbol = checkSymbol;
+		}
+	public String getDigits() {
+		return digits;
+	 
+		}
+	public String getCheckSymbol() {
+	 return checkSymbol;
+		}
+	public boolean isValid() {
+int name =(      (     
+		  ((digits.charAt(0)-'0')) *1  
+		+ ((digits.charAt(1)-'0')) *2  
+		+ ((digits.charAt(2)-'0')) *3
+		+ ((digits.charAt(3)-'0')) *4 
+		+ ((digits.charAt(4)-'0')) *5
+		+ ((digits.charAt(5)-'0')) *6  
+		+ ((digits.charAt(6)-'0')) *7 
+		+ ((digits.charAt(7)-'0')) *8 
+		+ (((digits.charAt(8)-'0')) *9 ))%11);
+
+
+
+		if((int)name != 10 && checkSymbol.charAt(0)-48 ==(int)name) {
+			valid = true;
+		}
+		else if ((int)name != 10 && checkSymbol.charAt(0)-48 !=(int)name) {
+			valid = false;
+		}
+		else if(name == 10 && checkSymbol == (String)"X") {
+			valid = true;
+		}
+		else {
+			valid = false;
+		}
+		return valid;
+	}
+	
+	public String toString() {
+		return digits.charAt(0) + "-" + digits.charAt(1) +digits.charAt(2) + digits.charAt(3) 
+		+ "-" + digits.charAt(4)+digits.charAt(5)+digits.charAt(6)+digits.charAt(7)+digits.charAt(8)
+		+ "-" + checkSymbol.charAt(0);
+	}
+}
